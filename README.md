@@ -4,9 +4,9 @@
 ### Note:
 **get_collection_stats**: Get all statistics data from all collections  
 How to execute:  
-    1. Update file getCollStats.py to define list of connection string. 
-    2. Update file postCollStats.sh to define connection string for MongoDB instance storing statistics data. 
-    3. Use MongoDB Compass or CLI to query and analyse the statistics data. 
+1. Update file getCollStats.py to define list of connection string.  
+2. Update file postCollStats.sh to define connection string for MongoDB instance storing statistics data.  
+3. Use MongoDB Compass or CLI to query and analyse the statistics data.  
 
 
 ### Directory structure:
