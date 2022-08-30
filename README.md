@@ -12,6 +12,6 @@
 ### Directory structure:
 / mongodb-script
     / get_collection_stats
-         \/ getCollStats.py - Loop through all defined cluster and database to get collection statistics data
+         -- getCollStats.py - Loop through all defined cluster and database to get collection statistics data
          / postCollStats.sh - Shell script using mongoimport to import JSON output from getCollStats.py to an MongoDB collection for further analysis
          
