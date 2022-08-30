@@ -1,11 +1,17 @@
 # README.md
-Query all collection in all database, excepting views collection and system, local, config databases
+## MongoDB scripting for example demo purpose
 
-## Notes:
-- getCollStats.py: Loop through all defined cluster connection, query all collection at all databases in the cluster to get the statistics
-- postCollStats.py: Shell script which uses mongoimport to load statistics data to another MongoDB collection for further analysis
+### Note:
+- get_collection_stats: Get all statistics data from all collections
+      How to execute:
+      1. Update file getCollStats.py to define list of connection string
+      2. Update file postCollStats.sh to define connection string for MongoDB instance storing statistics data
+      3. Use MongoDB Compass or CLI to query and analyse the statistics data
 
-## Execution:
-1. Update the file getCollStats.py to define the list of connection string to query the collection stats
-2. Update the file postCollStats.sh to use mongoimport to import data to an MongoDB collection for further analysis
-3. Use MongoDB Compass or CLI to query statistics data
+
+### Directory structure:
+/ mongodb-script
+    / get_collection_stats
+         / getCollStats.py - Loop through all defined cluster and database to get collection statistics data
+         / postCollStats.sh - Shell script using mongoimport to import JSON output from getCollStats.py to an MongoDB collection for further analysis
+         
