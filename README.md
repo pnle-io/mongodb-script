@@ -2,8 +2,8 @@
 ## MongoDB scripting for example demo purpose
 
 ### Note:
-** get_collection_stats 
-Get all statistics data from all collections
+get_collection_stats 
+Get all statistics data from all collections  
 How to execute:
 1. Update file getCollStats.py to define list of connection string
 2. Update file postCollStats.sh to define connection string for MongoDB instance storing statistics data
