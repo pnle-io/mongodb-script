@@ -9,7 +9,7 @@ conn_pool = [conn_str_0, conn_str_1, conn_str_2]
 output = []
 
 for conn in conn_pool:
-    client = client = MongoClient(conn)
+    client = MongoClient(conn)
     for db in client.list_database_names():
         if db not in ["admin", "config", "local"]:
             for coll in client[db].list_collections():            
