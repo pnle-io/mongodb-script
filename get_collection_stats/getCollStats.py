@@ -27,7 +27,7 @@ for conn in conn_pool:
                         "db_name": db,
                         "coll_name": coll["name"],
                         "coll_size_MB": client[db].command("collStats", coll["name"], scale = 1024*1024 )["size"],
-                        "avg_obj_size_MB": avgObjSize,
+                        "avg_obj_size_Bytes": avgObjSize,
                         "num_doc": num_doc,
                         "storage_size_MB": client[db].command("collStats", coll["name"], scale = 1024*1024 )["storageSize"],
                         "num_idx": client[db].command("collStats", coll["name"])["nindexes"],
