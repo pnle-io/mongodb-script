@@ -1,4 +1,5 @@
 from pymongo import MongoClient
+from urllib.parse import urlparse
 import json
 
 #example of connection string mongodb+srv://<<YOUR_USERNAME>>:<<YOUR_PASSWORD>>@fastanalytic.zqqqy.mongodb.net/?retryWrites=true&w=majority
@@ -10,6 +11,8 @@ conn_pool = [conn_str_0, conn_str_1, conn_str_2]
 output = []
 
 for conn in conn_pool:
+    parsed_uri = urlparse(conn)
+    cluster_name = parsed_uri.hostname.split('.')[0]
     client = MongoClient(conn)
     for db in client.list_database_names():
         if db not in ["admin", "config", "local"]:
@@ -24,6 +27,7 @@ for conn in conn_pool:
                     except KeyError:
                         num_doc = "N/A"                    
                     coll_stat = {
+                        "cluster_name": cluster_name,
                         "db_name": db,
                         "coll_name": coll["name"],
                         "coll_size_MB": client[db].command("collStats", coll["name"], scale = 1024*1024 )["size"],
@@ -36,5 +40,7 @@ for conn in conn_pool:
                     }
                     output.append(coll_stat)
     client.close()
-print(json.dumps(output, indent=4))
 
+output_file = 'cluster-result.json'
+with open(output_file, "w") as f:
+    f.write(json.dumps(output, indent=4))
