@@ -1,6 +1,6 @@
 ## MongoDB Altas 🌏 - Enviroment Assessment 
 
-### Get Colletion Stats
+### Get Collection Stats
 
 Get all statistics data from all collections.  
 
